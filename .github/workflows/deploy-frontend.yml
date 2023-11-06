@@ -1,1 +1,30 @@
+name: Deploy Frontend to GCS
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Google Cloud CLI
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_FRONTEND_KEY }}
+          project_id: cloud-temp-400907
+
+      - name: Deploy to GCS
+        run: |
+          gsutil cp -r ./frontend-dist/* gs://frontend-bucket-ccc-2023-group/
+        working-directory: ./frontend
+
+      - name: Clean Up
+        run: |
+          gcloud auth revoke
+        if: always()
