@@ -16,7 +16,7 @@ jobs:
       - name: Set up Google Cloud CLI
         uses: google-github-actions/setup-gcloud@v1
         with:
-          service_account_key: ${{ GCP_SERVICE_ACCOUNT_FRONTEND_KEY }}
+          service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_FRONTEND_KEY }}
           project_id: cloud-temp-400907
 
       - name: Deploy to GCS
