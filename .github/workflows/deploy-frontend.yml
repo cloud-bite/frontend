@@ -19,12 +19,9 @@ jobs:
 
       - name: build frontend
         uses: actions/setup-node@v3
-
-      - env:
-          BACKEND_URL: ${{secrets.BACKEND_URL}}
           
       - run: |
-          touch test
+          touch config.yml
           npm install
           npm run build
           ls
