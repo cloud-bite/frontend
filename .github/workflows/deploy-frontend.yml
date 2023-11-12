@@ -23,6 +23,11 @@ jobs:
       - run: |
           npm install
           npm run build
+      - name: 'Create env file'
+        run: |
+          touch .env
+          echo test >> .env
+          cat .env
 
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.5.0
