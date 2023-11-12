@@ -35,5 +35,5 @@ jobs:
 
       - name: Deploy to GCS
         run: |
-          gsutil cp -r ./* gs://frontend-bucket-ccc-2023-group
+          gsutil cp -r ./* gs://cb-website
         working-directory: ./dist
