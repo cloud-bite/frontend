@@ -12,8 +12,6 @@ jobs:
       id-token: 'write'
 
     runs-on: ubuntu-latest
-    env:
-      API_IP: ${{ secrets.BACKEND_IP }}
     
     steps:
       - name: Checkout code
@@ -37,4 +35,5 @@ jobs:
       - name: Deploy to GCS
         run: |
           gsutil cp -r ./* gs://cb-website
+          touch .env
         working-directory: ./dist
