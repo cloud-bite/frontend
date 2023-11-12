@@ -11,7 +11,6 @@ jobs:
       contents: 'read'
       id-token: 'write'
 
-    
     runs-on: ubuntu-latest
 
     steps:
@@ -20,9 +19,6 @@ jobs:
 
       - name: build frontend
         uses: actions/setup-node@v3
-
-      - run: |
-          echo "${{ secrets.BACKEND_IP }}" > .env 
 
       - name: 'Create env file'
         run: |
