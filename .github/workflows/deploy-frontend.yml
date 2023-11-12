@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v3
 
       - run: |
-          touch .env
+          touch test
           npm install
           npm run build
           ls
