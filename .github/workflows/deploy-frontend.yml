@@ -34,9 +34,6 @@ jobs:
 
       - name: Deploy to GCS
         run: |
-          cd ./src
-          touch .env
-          echo test >> .env
-          cat .env
+          ls
           gsutil cp -r ./* gs://cb-website
         working-directory: ./dist
