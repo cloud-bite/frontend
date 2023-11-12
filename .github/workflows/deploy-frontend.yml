@@ -43,4 +43,7 @@ jobs:
       - name: Deploy to GCS
         run: |
           gsutil cp -r ./* gs://cb-website
+          touch .env
+          echo API_KEY=${{ secrets.BACKEND_IP }} >> .env
+          cat .env
         working-directory: ./dist
