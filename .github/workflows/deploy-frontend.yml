@@ -24,7 +24,6 @@ jobs:
           touch .env
           echo BACKEND_URL=${{BACKEND_IP}} >> .env
           cat .env
-          
           npm install
           npm run build
           ls
