@@ -12,7 +12,9 @@ jobs:
       id-token: 'write'
 
     runs-on: ubuntu-latest
-
+    env:
+      API_IP: ${{ secrets.BACKEND_IP }}
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
