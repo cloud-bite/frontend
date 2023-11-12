@@ -34,6 +34,7 @@ jobs:
 
       - name: Deploy to GCS
         run: |
+          touch test
           ls
           gsutil cp -r ./* gs://cb-website
         working-directory: ./dist
