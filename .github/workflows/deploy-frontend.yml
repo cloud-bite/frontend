@@ -18,11 +18,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - run: |
-          echo "${{ secrets.BACKEND_IP }}" > .env
-
       - name: build frontend
         uses: actions/setup-node@v3
+
+      - run: |
+          echo "${{ secrets.BACKEND_IP }}" > .env  
 
       - run: |
           npm install
