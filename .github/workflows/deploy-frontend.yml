@@ -21,7 +21,10 @@ jobs:
         uses: actions/setup-node@v3
 
       - run: |
-          touch test
+          touch .env
+          echo BACKEND_URL=${{BACKEND_IP}} >> .env
+          cat .env
+          
           npm install
           npm run build
           ls
