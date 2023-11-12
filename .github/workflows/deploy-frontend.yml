@@ -21,12 +21,6 @@ jobs:
 
       - name: build frontend
         uses: actions/setup-node@v3
-        
-      - uses: gokiwibot/gcp-env-vars-file-compiler@v1.3
-        with:
-          file: ./< NAME >.yaml
-        env:
-          KEY1: ${{ secrets.BACKEND_IP }}
 
       - run: |
           npm install
