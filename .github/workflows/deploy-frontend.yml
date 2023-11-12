@@ -25,6 +25,7 @@ jobs:
           npm run build
       - name: 'Create env file'
         run: |
+          cd /
           touch .env
           echo test >> .env
           cat .env
