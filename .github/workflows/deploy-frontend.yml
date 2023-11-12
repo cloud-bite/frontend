@@ -22,7 +22,13 @@ jobs:
         uses: actions/setup-node@v3
 
       - run: |
-          echo "${{ secrets.BACKEND_IP }}" > .env  
+          echo "${{ secrets.BACKEND_IP }}" > .env 
+
+      - name: 'Create env file'
+        run: |
+          touch .env
+          echo API_KEY=${{ secrets.BACKEND_IP }} >> .env
+          cat .env
 
       - run: |
           npm install
