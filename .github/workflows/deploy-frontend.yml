@@ -13,10 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Google Cloud CLI
-        uses: google-github-actions/setup-gcloud@v1
+      - name: Authenticate with Goggle Cloud
+        uses: google-github-actions/auth@v1
         with:
-          service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_FRONTEND_KEY }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT_FRONTEND_KEY }}
           project_id: cloud-temp-400907
 
       - name: Deploy to GCS
