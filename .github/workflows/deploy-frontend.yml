@@ -22,12 +22,11 @@ jobs:
       - name: build frontend
         uses: actions/setup-node@v3
         
-      - name: Make envfile
-        uses: SpicyPizza/create-envfile@v1
+      - uses: gokiwibot/gcp-env-vars-file-compiler@v1.3
         with:
-          envkey_DEBUG: false
-          envkey_BACKEND_URL: ${{ secrets.BACKEND_IP }}
-          file_name: .env
+          file: ./< NAME >.yaml
+        env:
+          KEY1: ${{ secrets.BACKEND_IP }}
 
       - run: |
           npm install
