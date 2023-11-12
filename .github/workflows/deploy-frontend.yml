@@ -23,7 +23,6 @@ jobs:
       - run: |
           touch .env
           echo BACKEND_URL=${{secrets.BACKEND_IP}} >> .env
-          cat .env
           npm install
           npm run build
           ls
