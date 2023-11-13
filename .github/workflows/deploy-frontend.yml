@@ -21,10 +21,12 @@ jobs:
         uses: actions/setup-node@v3
           
       - run: |
-          npm install
           echo "{backend_ip:${{ secrets.BACKEND_IP }}}" > config.json
+          cat config.json
+          npm install
           npm run build
           ls
+          cat config.json
 
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.5.0
