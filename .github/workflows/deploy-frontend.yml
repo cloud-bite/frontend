@@ -33,7 +33,9 @@ jobs:
           export_default_credentials: true
 
       - name: Create .env file
-        run: echo "GOOGLE_CLOUD_BUCKET_NAME=my-bucket-name" > .env
+        run: | 
+          echo "GOOGLE_CLOUD_BUCKET_NAME=my-bucket-name" > .env
+          ls
 
       - name: Deploy to GCS
         run: |
