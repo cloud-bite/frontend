@@ -19,14 +19,14 @@ jobs:
 
       - name: build frontend
         uses: actions/setup-node@v3
+
+      - env:
+          VITE_INTERNAL: true
           
       - run: |
-          echo "{backend_ip:${{ secrets.BACKEND_IP }}}" > config.json
-          cat config.json
           npm install
           npm run build
           ls
-          cat config.json
 
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.5.0
@@ -38,8 +38,5 @@ jobs:
 
       - name: Deploy to GCS
         run: |
-          touch config.yml
-          echo "backend_ip: ${{ secrets.BACKEND_IP }}" > config.yml
-          ls
           gsutil cp -r ./* gs://cb-website
         working-directory: ./dist
