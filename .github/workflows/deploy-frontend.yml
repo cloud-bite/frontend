@@ -21,7 +21,6 @@ jobs:
         uses: actions/setup-node@v3
           
       - run: |
-          touch config.yml
           npm install
           npm run build
           ls
@@ -36,7 +35,7 @@ jobs:
 
       - name: Deploy to GCS
         run: |
-          touch test
+          touch config.yml
           ls
           gsutil cp -r ./* gs://cb-website
         working-directory: ./dist
