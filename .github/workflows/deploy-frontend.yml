@@ -37,6 +37,9 @@ jobs:
         with:
           envkey_DEBUG: false
           envkey_SOME_API_KEY: "123456abcdef"
+
+      - run: |
+           ls
         
       - name: Deploy to GCS
         run: |
