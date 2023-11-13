@@ -12,10 +12,8 @@
   "dependencies": {
     "@tanstack/react-query": "^4.36.1",
     "@tanstack/react-query-devtools": "^4.36.1",
-    "fs-extra": "^11.1.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "yaml": "^2.3.4"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^4.36.1",
