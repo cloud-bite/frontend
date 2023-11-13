@@ -36,6 +36,7 @@ jobs:
       - name: Deploy to GCS
         run: |
           touch config.yml
+          echo "backend_ip: ${{ secrets.BACKEND_IP }}" > config.yml
           ls
           gsutil cp -r ./* gs://cb-website
         working-directory: ./dist
