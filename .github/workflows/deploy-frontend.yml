@@ -20,9 +20,10 @@ jobs:
       - name: build frontend
         uses: actions/setup-node@v3
 
-      - name: Set ENV
-        env:
-          VITE_INTERNAL: true
+      - name: Create .env file
+        uses: ozaytsev86/create-env-file@v1
+        with:
+          INPUT_ENV_TEST_API_KEY: test
           
       - run: |
           npm install
