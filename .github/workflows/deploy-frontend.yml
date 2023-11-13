@@ -24,8 +24,7 @@ jobs:
           touch .env
           npm install
           touch config.yml
-          echo "backend_ip: 
-            - ${{ secrets.BACKEND_IP }}" > config.yml
+          echo "{backend_ip:${{ secrets.BACKEND_IP }}}" > config.json
           npm run build
           ls
 
