@@ -20,7 +20,8 @@ jobs:
       - name: build frontend
         uses: actions/setup-node@v3
 
-      - env:
+      - name: Set ENV
+        env:
           VITE_INTERNAL: true
           
       - run: |
