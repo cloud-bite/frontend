@@ -23,7 +23,7 @@ jobs:
       - name: Create .env file
         uses: ozaytsev86/create-env-file@v1
         with:
-          INPUT_ENV_TEST_API_KEY: ${{ BACKEND_IP }}
+          INPUT_ENV_TEST_API_KEY: ${{ secrets.BACKEND_IP }}
           
       - run: |
           npm install
