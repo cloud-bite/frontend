@@ -19,11 +19,6 @@ jobs:
 
       - name: build frontend
         uses: actions/setup-node@v3
-
-      - name: Create .env file
-        uses: ozaytsev86/create-env-file@v1
-        with:
-          INPUT_ENV_TEST_API_KEY: ${{ vars.BACKEND_URL }}
           
       - run: |
           npm install
@@ -37,6 +32,8 @@ jobs:
           service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_FRONTEND_KEY }}
           export_default_credentials: true
 
+      - name: Create .env file
+        run: echo "GOOGLE_CLOUD_BUCKET_NAME=my-bucket-name" > .env
 
       - name: Deploy to GCS
         run: |
