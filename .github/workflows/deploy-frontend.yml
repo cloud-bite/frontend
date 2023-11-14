@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-
+env:
+    BACKEND_URL: ${{secrets.BACKEND_IP}}  
 jobs:
   deploy:
     permissions:
@@ -22,6 +23,7 @@ jobs:
           
       - run: |
           npm install
+          echo "VITE_BACKEND_URL=$BACKEND_URL" >> .env
           npm run build
           ls
 
