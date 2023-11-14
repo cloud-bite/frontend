@@ -7,14 +7,14 @@ type Food = {
 
 export const Menu = () => {
   const fetchMenu = async () => {
-    const response = await fetch(process.env.BACKEND_URL + '/menu');
+    const response = await fetch('https://backend-m7qy47u54q-lz.a.run.app/menu');
     const data = await response.json();
     return data as Food[];
     // TODO: Type guard this, and throw error if not correct type.
   };
   const { data, error, isLoading } = useQuery(['menu'], fetchMenu);
   const { mutate: placeOrder } = useMutation((food: Food) => {
-    return fetch(process.env.BACKEND_URL+'/order', {
+    return fetch('https://backend-m7qy47u54q-lz.a.run.app/order', {
       method: 'POST',
       body: JSON.stringify(food),
       headers: {
