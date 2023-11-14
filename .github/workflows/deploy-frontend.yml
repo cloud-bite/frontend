@@ -21,11 +21,9 @@ jobs:
         uses: actions/setup-node@v3
           
       - run: |
-          REACT_APP_NOT_SECRET_CODE=abcdef
           npm install
           npm run build
           ls
-          REACT_APP_NOT_SECRET_CODE
 
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.5.0
