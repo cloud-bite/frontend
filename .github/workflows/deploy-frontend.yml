@@ -21,9 +21,11 @@ jobs:
         uses: actions/setup-node@v3
           
       - run: |
+          REACT_APP_NOT_SECRET_CODE=abcdef
           npm install
           npm run build
           ls
+          REACT_APP_NOT_SECRET_CODE
 
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.5.0
@@ -32,14 +34,6 @@ jobs:
           service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_FRONTEND_KEY }}
           export_default_credentials: true
 
-      - name: Make envfile
-        uses: SpicyPizza/create-envfile@v2.0
-        with:
-          envkey_DEBUG: false
-          envkey_SOME_API_KEY: "123456abcdef"
-
-      - run: |
-           ls
         
       - name: Deploy to GCS
         run: |
