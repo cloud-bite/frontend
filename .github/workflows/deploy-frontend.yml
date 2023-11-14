@@ -19,15 +19,11 @@ jobs:
 
       - name: build frontend
         uses: actions/setup-node@v3
-
+          
       - run: |
           npm install
           npm run build
-      - name: 'Create env file'
-        run: |
-          touch .env
-          echo test >> .env
-          cat .env
+          ls
 
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.5.0
@@ -36,7 +32,7 @@ jobs:
           service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_FRONTEND_KEY }}
           export_default_credentials: true
 
-
+        
       - name: Deploy to GCS
         run: |
           gsutil cp -r ./* gs://cb-website
